@@ -22,4 +22,4 @@ git clone https://github.com/TakeshiKawasaki/2023-simulation-training.git repo
 を実行すると　新たに生成されるフォルダ'repo'以下に当リポジトリ内の全てのデータが入ります．
 
 ## 更新履歴<br>
-04/11：第1回講義で用いるサンプルプログラム等をLecture1におきました．講義が進むにつれデータをアップデートさせます．<br>
+04/18：第1回講義で用いるサンプルプログラム等をLecture1におきました．講義が進むにつれデータをアップデートさせます．<br>
