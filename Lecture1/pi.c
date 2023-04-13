@@ -11,9 +11,9 @@ int main(void){
   double x,y,z,pi;
   char fname[128];
   ofstream file;
-  srand(time(NULL));
-  sprintf(fname,"coord%d.dat",max);
-  file.open(fname);
+  srand(time(NULL));  // "time(NULL)" as a seed of ramdom number
+  sprintf(fname,"coord%d.dat",max); // Define the file name for fname[128]
+  file.open(fname); // "file" with the name of fname[128]
   for(i=0;i<max;i++){
     x = (double)rand()/RAND_MAX;
     y = (double)rand()/RAND_MAX;
