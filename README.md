@@ -19,7 +19,9 @@ This work is licensed under a
 ```
 git clone https://github.com/TakeshiKawasaki/2023-simulation-training.git repo
 ```
-を実行すると　新たに生成されるフォルダ'repo'以下に当リポジトリ内の全てのデータが入ります．
+を実行すると　新たに生成されるフォルダ'repo'以下に当リポジトリ内の全てのデータが入ります．<br>
+参考 (git install)：
+https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop
 
 ## 更新履歴<br>
 04/15：第1回講義で用いるサンプルプログラム等をLecture1におきました．講義が進むにつれデータをアップデートさせます．<br>
