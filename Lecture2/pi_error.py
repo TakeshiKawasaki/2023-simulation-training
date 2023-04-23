@@ -18,7 +18,7 @@ i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=Tru
 plt.plot(i, pi, "o-",markersize=10,color="b",label=r"rand()")
 plt.xscale('log')
 ###Drawing a line ######
-x= np.linspace(1e4, 1e9, 100) 
+x= np.linspace(1e4, 1e8, 100) 
 y= np.pi+0*x
 plt.plot(x, y, "--",markersize=3,linewidth = 2.0, color="k",label=r"$\pi$")
 #########
@@ -47,7 +47,7 @@ plt.xscale('log')
 plt.yscale('log')
 
 ###Drawing a line ######
-x= np.linspace(1e4, 1e9, 100) 
+x= np.linspace(1e4, 1e8, 100) 
 y=1/x**0.5
 plt.plot(x, y, "--",markersize=3,linewidth = 2.0, color="k",label=r"$\propto 1/\sqrt{n}$")
 #########
@@ -76,7 +76,7 @@ i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=Tru
 plt.plot(i, pi, "D-",markersize=10,color="g",label=r"MT")
 plt.xscale('log')
 ###Drawing a line ######
-x= np.linspace(1e4, 1e9, 100) 
+x= np.linspace(1e4, 1e8, 100) 
 y= np.pi+0*x
 plt.plot(x, y, "--",markersize=3,linewidth = 2.0, color="k",label=r"$\pi$")
 #########
@@ -104,7 +104,7 @@ i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=Tru
 plt.plot(i, error, "s-",markersize=10,color="m",label=r"MT")
 
 ###Drawing a line ######
-x= np.linspace(1e4, 1e9, 100) 
+x= np.linspace(1e4, 1e8, 100) 
 y=1/x**0.5
 plt.plot(x, y, "--",markersize=3,linewidth = 2.0, color="k",label=r"$\propto 1/\sqrt{n}$")
 #########
@@ -129,5 +129,5 @@ plt.legend(ncol=1, loc=1, borderaxespad=0, fontsize=25,frameon=False)
 plt.subplots_adjust(wspace=0.3, hspace=0.25)
 
 #各自ファイルのパスを変えること．
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture2/pi-error.png')
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture2/pi-error.pdf')
+plt.savefig('./Lecture2/pi-error.png')
+plt.savefig('./Lecture2/pi-error.pdf')
