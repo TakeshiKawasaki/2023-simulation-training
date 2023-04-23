@@ -8,6 +8,7 @@ import numpy as np
 #Tex フォント（任意）:使いたい人は以下のコメントアウトを開放 
 #plt.rcParams["text.usetex"] =True 
 plt.rcParams['font.family'] = 'Arial' #使用するフォント名
+plt.rcParams["font.size"] = 25
 
 #図全体のサイズやアスペクト比を変える
 fig = plt.figure(figsize=(18,12))
@@ -33,8 +34,7 @@ ax.spines['left'].set_linewidth(3)
 ax.spines['right'].set_linewidth(3)
 plt.xlabel(r"$n$",color='k', size=30)
 plt.ylabel(r"$\pi(n)$",color='k', size=30)
-plt.xticks(color='k', size=25)
-plt.yticks(color='k', size=25)
+
 #図の凡例の有無や位置，サイズを調整
 plt.legend(ncol=1, loc=4, borderaxespad=0, fontsize=25,frameon=False)
 #各グラフのアスペクト比を1:1にする
@@ -64,8 +64,7 @@ ax.spines['left'].set_linewidth(3)
 ax.spines['right'].set_linewidth(3)
 plt.xlabel(r"$n$",color='k', size=30)
 plt.ylabel(r"$\delta(n)$",color='k', size=30)
-plt.xticks(color='k', size=25)
-plt.yticks(color='k', size=25)
+
 #図の凡例の有無や位置，サイズを調整
 plt.legend(ncol=1, loc=1, borderaxespad=0, fontsize=25,frameon=False)
 #################################
@@ -92,8 +91,7 @@ ax.spines['left'].set_linewidth(3)
 ax.spines['right'].set_linewidth(3)
 plt.xlabel(r"$n$",color='k', size=30)
 plt.ylabel(r"$\pi(n)$",color='k', size=30)
-plt.xticks(color='k', size=25)
-plt.yticks(color='k', size=25)
+
 #図の凡例の有無や位置，サイズを調整
 plt.legend(ncol=1, loc=4, borderaxespad=0, fontsize=25,frameon=False)
 #################################
@@ -121,8 +119,7 @@ ax.spines['left'].set_linewidth(3)
 ax.spines['right'].set_linewidth(3)
 plt.xlabel(r"$n$",color='k', size=30)
 plt.ylabel(r"$\delta(n)$",color='k', size=30)
-plt.xticks(color='k', size=25)
-plt.yticks(color='k', size=25)
+
 #図の凡例の有無や位置，サイズを調整
 plt.legend(ncol=1, loc=1, borderaxespad=0, fontsize=25,frameon=False)
 #################################
