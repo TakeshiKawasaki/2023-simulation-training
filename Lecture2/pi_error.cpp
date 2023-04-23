@@ -8,7 +8,7 @@
 #include "MT.h"// for MT
 
 int main(void){
-  int i, count = 0, max = 1e+9;
+  int i, count = 0, max = 1e+8;
   double x,y,z,pi, out=1.e+2;
   char fname[128];
   std::ofstream file;
