@@ -21,9 +21,9 @@ int main(void){
     z = x*x + y*y;
     if(z<1)
       count++;
-    if(i>=(int)out){
-      pi=(double)count /i*4;
-      file<<setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;;
+    if(i>=(int)out){         // (double)out: cast double to int
+      pi=(double)count /(double)i*4.; // (double)count: cast int to double
+      file<<std::setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;;
       std::cout<<std::setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;
       out*=1.2;
     }
