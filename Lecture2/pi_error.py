@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 #図の解像度が上がる
 %config InlineBackend.figure_format = 'retina'
 import numpy as np
-#Tex フォント
-plt.rcParams["text.usetex"] =True 
+#Tex フォント（任意）:使いたい人は以下のコメントアウトを開放 
+#plt.rcParams["text.usetex"] =True 
+
 #図全体のサイズやアスペクト比を変える
 fig = plt.figure(figsize=(18,12))
 #複数の図を並べる時ここを変える
@@ -13,7 +14,7 @@ fig = plt.figure(figsize=(18,12))
  ###########################
 ax1 = fig.add_subplot(221)
 #各自ファイルのパスを変えること
-i, pi,error  = np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture2/pi-error.dat", comments='#', unpack=True)
+i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=True)
 plt.plot(i, pi, "o-",markersize=10,color="b",label=r"rand()")
 plt.xscale('log')
 ###Drawing a line ######
@@ -40,7 +41,7 @@ plt.legend(ncol=1, loc=4, borderaxespad=0, fontsize=25,frameon=False)
  ###########################
 ax2 = fig.add_subplot(222)
 #各自ファイルのパスを変えること
-i, pi,error  = np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture2/pi-error.dat", comments='#', unpack=True)
+i, pi,error  = np.loadtxt("./Lecture2/pi-error.dat", comments='#', unpack=True)
 plt.plot(i, error, "x-",markersize=10,color="r",label=r"rand()")
 plt.xscale('log')
 plt.yscale('log')
@@ -71,7 +72,7 @@ plt.legend(ncol=1, loc=1, borderaxespad=0, fontsize=25,frameon=False)
 
 ax3 = fig.add_subplot(223)
 #各自ファイルのパスを変えること
-i, pi,error  = np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture2/pi-error-MT.dat", comments='#', unpack=True)
+i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=True)
 plt.plot(i, pi, "D-",markersize=10,color="g",label=r"MT")
 plt.xscale('log')
 ###Drawing a line ######
@@ -99,7 +100,7 @@ plt.legend(ncol=1, loc=4, borderaxespad=0, fontsize=25,frameon=False)
 
 ax4 = fig.add_subplot(224)
 #各自ファイルのパスを変えること
-i, pi,error  = np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture2/pi-error-MT.dat", comments='#', unpack=True)
+i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=True)
 plt.plot(i, error, "s-",markersize=10,color="m",label=r"MT")
 
 ###Drawing a line ######
