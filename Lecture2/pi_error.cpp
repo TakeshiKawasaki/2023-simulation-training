@@ -42,7 +42,7 @@ int main(void){
     if(z<=1.0)
       count++;
     if(i>=(int)out){
-      pi=(double)count /i*4;
+      pi=(double)count /(double)i*4.0;
       file<<setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;;
       std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;
       out*=1.2;
