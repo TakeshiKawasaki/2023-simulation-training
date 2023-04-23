@@ -21,10 +21,10 @@ int main(void){
     z = x*x + y*y;
     if(z<=1.0)
       count++;
-    if(i>=(int)out){   　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 // (double)out: cast double to int
+    if(i>=(int)out){    // (double)out: cast double to int
       pi=(double)count /(double)i*4.0; // (double)count: cast int to double
-      file<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;;
-      std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;
+      file<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<std::endl;;
+      std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<std::endl;
       out*=1.2;
     }
   }
@@ -43,8 +43,8 @@ int main(void){
       count++;
     if(i>=(int)out){
       pi=(double)count /(double)i*4.0;
-      file<<setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;;
-      std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;
+      file<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<std::endl;;
+      std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<std::endl;
       out*=1.2;
     }
   }
