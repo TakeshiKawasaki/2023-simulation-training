@@ -1,8 +1,8 @@
 #include <stdio.h> // for printf, etc
 #include <stdlib.h> // for rand(), etc
 #include <math.h> // for sin(),cos(), etc
-#include <iostream>// for cout, etc
-#include <iomanip>// for setprecision()
+#include <iostream>// for std::cout, etc
+#include <iomanip>//  for std::setprecision()
 #include <fstream> // for ifstream/ofstream
 #include <time.h>// for time(NULL), etc
 #include "MT.h"// for MT
@@ -21,10 +21,10 @@ int main(void){
     z = x*x + y*y;
     if(z<1)
       count++;
-    if(i>=(int)out){         // (double)out: cast double to int
-      pi=(double)count /(double)i*4.; // (double)count: cast int to double
-      file<<std::setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;;
-      std::cout<<std::setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;
+    if(i>=(int)out){   　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 // (double)out: cast double to int
+      pi=(double)count /(double)i*4.0; // (double)count: cast int to double
+      file<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;;
+      std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;
       out*=1.2;
     }
   }
@@ -43,8 +43,8 @@ int main(void){
       count++;
     if(i>=(int)out){
       pi=(double)count /i*4;
-      file<<setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;;
-      cout<<setprecision(16)<<i<<" "<<pi<<" "<<abs(pi-M_PI)<<endl;
+      file<<setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;;
+      std::cout<<std::setprecision(16)<<i<<"\t"<<pi<<"\t"<<abs(pi-M_PI)<<endl;
       out*=1.2;
     }
   }
