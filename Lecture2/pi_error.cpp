@@ -19,7 +19,7 @@ int main(void){
     x = (double)rand()/RAND_MAX;
     y = (double)rand()/RAND_MAX;
     z = x*x + y*y;
-    if(z<1)
+    if(z<=1.0)
       count++;
     if(i>=(int)out){   　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 // (double)out: cast double to int
       pi=(double)count /(double)i*4.0; // (double)count: cast int to double
@@ -39,7 +39,7 @@ int main(void){
     x = genrand_res53();
     y = genrand_res53();
     z = x*x + y*y;
-    if(z<1)
+    if(z<=1.0)
       count++;
     if(i>=(int)out){
       pi=(double)count /i*4;
