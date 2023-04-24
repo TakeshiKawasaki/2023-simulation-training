@@ -17,7 +17,7 @@ fig = plt.figure(figsize=(18,12))
  ###########################
 ax = fig.add_subplot(221)
 #各自ファイルのパスを変えること
-i, pi,error  = np.loadtxt("./Lecture2/pi-error-MT.dat", comments='#', unpack=True)
+i, pi,error  = np.loadtxt("./Lecture2/pi-error.dat", comments='#', unpack=True)
 plt.plot(i, pi, "o-",markersize=10,color="b",label=r"rand()")
 plt.xscale('log')
 ###Drawing a line ######
