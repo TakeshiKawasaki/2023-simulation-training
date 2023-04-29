@@ -19,10 +19,10 @@ int damp(double dt){
     if((double)i >= out){
       file << (double)i*dt << "   " << v <<std::endl;
       std::cout << (double)i*dt << "   " << v <<std::endl;
-      out*=1.5;
+      out*=1.5;  // as same as out = out * 1.5
     }
   }
-  file.close();
+  file.close();  // should be closed when all input process has been finised.
   return 0;
 }
 
