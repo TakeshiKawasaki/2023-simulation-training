@@ -15,7 +15,7 @@ int damp(double dt){
   file.open(filename);
   while(v > DBL_EPSILON){ //continue while v > 2.22044604925031e-16.
     v-=v*dt;  // as same as v = v - v*dt
-    i++;      // as same as i += 1;
+    i++;      // as same as i += 1 or i =i + 1;
     if((double)i >= out){
       file << (double)i*dt << "   " << v <<std::endl;
       std::cout << (double)i*dt << "   " << v <<std::endl;
