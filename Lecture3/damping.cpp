@@ -13,9 +13,9 @@ int damp(double dt){
   double v=10.,out=1.;
   sprintf(filename,"velo_%.4f.dat",dt);
   file.open(filename);
-  while(v > DBL_EPSILON){
-    v-=v*dt;
-    i++;
+  while(v > DBL_EPSILON){ //continue while v > o(e-16).
+    v-=v*dt;  // as same as v = v - v*dt
+    i++;      // as same as i += 1;
     if((double)i >= out){
       file << (double)i*dt << "   " << v <<std::endl;
       std::cout << (double)i*dt << "   " << v <<std::endl;
