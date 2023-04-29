@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <iostream>
-#include <fstream>
-#include <cfloat>
+#include <math.h> // for mathmatical functions
+#include <iostream> // for input or output, i.e., std::cout
+#include <fstream> // for  std::ofstream file 
+#include <cfloat> // for DBL_EPSILON, a.k.a. numerical epsilon 
 //using namespace std;                                                                                                                                       
 
 int damp(double dt){
@@ -25,7 +25,6 @@ int damp(double dt){
   file.close();
   return 0;
 }
-
 
 int main(){
   double dt;
