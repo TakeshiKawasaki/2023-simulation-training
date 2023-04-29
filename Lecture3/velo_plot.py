@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 %config InlineBackend.figure_format = 'retina'
 import matplotlib.cm as cm  # colormap
 import numpy as np
-plt.rcParams["text.usetex"] =True 
+#plt.rcParams["text.usetex"] =True 
+plt.rcParams['font.family'] = 'Arial' #使用するフォント名
+plt.rcParams["font.size"] = 25
+
 fig = plt.figure(figsize=(18,8))
 
 dt=[0.0001,0.0010,0.0100,0.1000]
@@ -17,7 +20,7 @@ for j in range (1,4):
 
     for i in range (0,4): 
         print(i,symbol[i],dt[i])  # for check on the arrays
-        time,vel= np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture3/velo_{:.4f}.dat".format(dt[i]), comments='#', unpack=True)
+        time,vel= np.loadtxt("./Lecture3/velo_{:.4f}.dat".format(dt[i]), comments='#', unpack=True)
         if(j!=3):
             plt.plot(time,vel, "{}".format(symbol[i]) ,markersize=10,color=cm.jet(i/4),label=r"$\Delta t/t_0={}$".format(dt[i]))
         else:
@@ -43,8 +46,6 @@ for j in range (1,4):
     else:
         plt.ylabel(r"$\delta(=|1-v_{\rm theory}(t)/v(t)|)$",color='k', size=30)
         
-    plt.xticks(color='k', size=25)
-    plt.yticks(color='k', size=25)
     #図の凡例の有無や位置，サイズを調整
     if(j<3):
         plt.legend(ncol=1, loc=1, borderaxespad=0, fontsize=20,frameon=False)    
@@ -55,6 +56,6 @@ for j in range (1,4):
 #図のマージン設定
 plt.subplots_adjust(wspace=0.5, hspace=0.25)
 #各自ファイルのパスを変えること．
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture3/velo_dt_lin_log.png')
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture3/velo_dt_lin_log.pdf')
+plt.savefig('./Lecture3/velo_dt_lin_log.png')
+plt.savefig('./Lecture3/velo_dt_lin_log.pdf')
 plt.show()
