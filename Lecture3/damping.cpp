@@ -17,8 +17,8 @@ int damp(double dt){
     v-=v*dt;  // as same as v = v - v*dt
     i++;      // as same as i += 1 or i =i + 1;
     if((double)i >= out){
-      file << (double)i*dt << "   " << v <<std::endl;
-      std::cout << (double)i*dt << "   " << v <<std::endl;
+      file << (double)i*dt << "\t" << v <<std::endl;
+      std::cout << (double)i*dt << "\t" << v <<std::endl;
       out*=1.5;  // as same as out = out * 1.5
     }
   }
