@@ -14,7 +14,8 @@ dt=[0.0001,0.0010,0.0100,0.1000]
 symbol =['o-','D-','x-','>-']
 
 for j in range (1,4): 
-    ax = fig.add_subplot("13{}".format(j)) 
+    #ax = fig.add_subplot("13{}".format(j)) 
+    ax = fig.add_subplot(1,3,j) 
     if(j>1):
         plt.yscale('log')
 
