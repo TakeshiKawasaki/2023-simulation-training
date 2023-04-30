@@ -14,7 +14,7 @@ dt=[0.0001,0.0010,0.0100,0.1000]
 symbol =['o-','D-','x-','>-']
 
 for j in range (1,4): 
-    ax1 = fig.add_subplot("13{}".format(j)) 
+    ax = fig.add_subplot("13{}".format(j)) 
     if(j>1):
         plt.yscale('log')
 
@@ -36,10 +36,10 @@ for j in range (1,4):
     #図の書式設定
     plt.tick_params(which='major',width = 1, length = 10)
     plt.tick_params(which='minor',width = 1, length = 5)
-    ax1.spines['top'].set_linewidth(3)
-    ax1.spines['bottom'].set_linewidth(3)
-    ax1.spines['left'].set_linewidth(3)
-    ax1.spines['right'].set_linewidth(3)
+    ax.spines['top'].set_linewidth(3)
+    ax.spines['bottom'].set_linewidth(3)
+    ax.spines['left'].set_linewidth(3)
+    ax.spines['right'].set_linewidth(3)
     plt.xlabel(r"$t/t_0(=\tilde{t})$",color='k', size=30)
     if(j!=3):
         plt.ylabel(r"$v(t)t_0/a(=\tilde{v}(t))$",color='k', size=30)
