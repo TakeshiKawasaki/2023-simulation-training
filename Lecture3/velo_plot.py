@@ -14,7 +14,7 @@ dt=[0.0001,0.0010,0.0100,0.1000]
 symbol =['o-','D-','x-','>-']
 
 for j in range (1,4): 
-    #ax = fig.add_subplot("13{}".format(j)) 
+    #ax = fig.add_subplot("13{}".format(j))
     ax = fig.add_subplot(1,3,j) 
     if(j>1):
         plt.yscale('log')
@@ -23,9 +23,9 @@ for j in range (1,4):
         print(i,symbol[i],dt[i])  # for check on the arrays
         time,vel= np.loadtxt("./Lecture3/velo_{:.4f}.dat".format(dt[i]), comments='#', unpack=True)
         if(j!=3):
-            plt.plot(time,vel, "{}".format(symbol[i]) ,markersize=10,color=cm.jet(i/4),label=r"$\Delta t/t_0={}$".format(dt[i]))
+            plt.plot(time,vel, "{}".format(symbol[i]) ,markersize=10,color=cm.jet(i/4.),label=r"$\Delta t/t_0={}$".format(dt[i]))
         else:
-            plt.plot(time,np.abs(1 -10.*np.exp(-time)/vel), "{}".format(symbol[i]) ,markersize=10,color=cm.jet(i/4),label=r"$\Delta t/t_0={}$".format(dt[i]))
+            plt.plot(time,np.abs(1 -10.*np.exp(-time)/vel), "{}".format(symbol[i]) ,markersize=10,color=cm.jet(i/4.),label=r"$\Delta t/t_0={}$".format(dt[i]))
         
         
     ###Drawing a line ######
@@ -37,10 +37,10 @@ for j in range (1,4):
     #図の書式設定
     plt.tick_params(which='major',width = 1, length = 10)
     plt.tick_params(which='minor',width = 1, length = 5)
-    ax.spines['top'].set_linewidth(3)
-    ax.spines['bottom'].set_linewidth(3)
-    ax.spines['left'].set_linewidth(3)
-    ax.spines['right'].set_linewidth(3)
+    ax.spines['top'].set_linewidth(4)
+    ax.spines['bottom'].set_linewidth(4)
+    ax.spines['left'].set_linewidth(4)
+    ax.spines['right'].set_linewidth(4)
     plt.xlabel(r"$t/t_0(=\tilde{t})$",color='k', size=30)
     if(j!=3):
         plt.ylabel(r"$v(t)t_0/a(=\tilde{v}(t))$",color='k', size=30)
