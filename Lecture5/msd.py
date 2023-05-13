@@ -12,7 +12,7 @@ temp=[0.01,0.1,1]
 
 ax1 = fig.add_subplot(111)
 for i in range(0,3):
-    t,msd= np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture5/msd_dt0.010T{:.3f}.dat".format(temp[i]), comments='#', unpack=True)
+    t,msd= np.loadtxt("./Lecture5/msd_dt0.010T{:.3f}.dat".format(temp[i]), comments='#', unpack=True)
     plt.plot(t,msd, "o" ,markersize=10,color=cm.jet(0.2+i/3),label=r"$T^*={:.3f}$".format(temp[i]))
 
     t= np.linspace(0.01, 20, 1000) 
@@ -36,5 +36,5 @@ plt.yticks(color='k', size=30)
 plt.legend(ncol=1, loc=4, borderaxespad=0, fontsize=20,frameon=False)
 #################################
 plt.subplots_adjust(wspace=0.5, hspace=0.25)
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture5/msd.pdf')
+plt.savefig('./Lecture5/msd.pdf')
 plt.show()
