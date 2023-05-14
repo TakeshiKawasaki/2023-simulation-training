@@ -39,13 +39,13 @@ void output(double *x,double *v,int j){
   std::ofstream file;
 
   sprintf(filename,"coord_dt%.3fT%.3f.dat",dt,temp);
-  file.open(filename,std::ios::app); //append
+  file.open(filename);
   file <<j*dt<<"\t"<<x[0]<<"\t"<<x[1]<<"\t"<<x[2]<<std::endl;
   //  std::cout<<j*dt<<"\t"<<x[0]<<"\t"<<x[1]<<"\t"<<x[2]<<std::endl;
   file.close();
 
   sprintf(filename,"vel_dt%.3fT%.3f.dat",dt,temp);
-  file.open(filename,std::ios::app); //append
+  file.open(filename);
   file <<j*dt<<"\t"<<v[0]<<"\t"<<v[1]<<"\t"<<v[2]<<std::endl;
   file.close();
   
