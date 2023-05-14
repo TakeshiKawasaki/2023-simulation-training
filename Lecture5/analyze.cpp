@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <cfloat>
-#include "BM.h"
 
 #define temp 0.01
 #define dt 0.01
