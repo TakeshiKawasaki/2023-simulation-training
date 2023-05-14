@@ -6,11 +6,15 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm  # colormap
 import numpy as np
 import math
-plt.rcParams["text.usetex"] =True 
+# plt.rcParams["text.usetex"] =True 
+
+plt.rcParams['font.family'] = 'Arial' #使用するフォント名
+plt.rcParams["font.size"] = 40
+
 fig = plt.figure(figsize=(12,8))
 temp=[0.01,0.1,1]
 
-ax1 = fig.add_subplot(111)
+ax = fig.add_subplot(111)
 for i in range(0,3):
     t,msd= np.loadtxt("./Lecture5/msd_dt0.010T{:.3f}.dat".format(temp[i]), comments='#', unpack=True)
     plt.plot(t,msd, "o" ,markersize=10,color=cm.jet(0.2+i/3),label=r"$T^*={:.3f}$".format(temp[i]))
@@ -24,10 +28,10 @@ plt.yscale('log')
 
 plt.tick_params(which='major',width = 1, length = 10)
 plt.tick_params(which='minor',width = 1, length = 5)
-ax1.spines['top'].set_linewidth(3)
-ax1.spines['bottom'].set_linewidth(3)
-ax1.spines['left'].set_linewidth(3)
-ax1.spines['right'].set_linewidth(3)
+ax.spines['top'].set_linewidth(3)
+ax.spines['bottom'].set_linewidth(3)
+ax.spines['left'].set_linewidth(3)
+ax.spines['right'].set_linewidth(3)
 plt.xlabel(r"$t/t_0$",color='k', size=30)
 plt.ylabel(r"$\langle \Delta \mathbf{r}(t)^2\rangle/a^2$",color='k', size=30)
 plt.xticks(color='k', size=30)
