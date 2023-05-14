@@ -8,7 +8,7 @@
 
 #define tmax 10
 #define dt 0.01
-#define temp 0.01 //parameter
+#define temp 1.0//parameter
 #define ensemble 1000
 #define dim 3
 //using namespace std;
