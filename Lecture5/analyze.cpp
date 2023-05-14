@@ -6,9 +6,9 @@
 #include <cfloat>
 #include "BM.h"
 
-#define temp 1.0
+#define temp 0.01
 #define dt 0.01
-#define ensemble 10000
+#define ensemble 1000
 #define window 39
 #define dim 3
 //using namespace std;
@@ -61,11 +61,10 @@ void analyze(double (*x)[dim],double (*v)[dim],double *t,double *dr2,double *cor
   for(int i=0;i<ensemble;i++)
     for(int j=0;j<window;j++){
       for(int k=0;k<dim;k++){
-	dx[k]=(x[j+window*i][k]-x[window*i][k]);
-	corr_x[k]=v[j+window*i][k]*v[window*i][k];
-	dr2[j]+=(dx[k]*dx[k])/ensemble;
-	corr[j]+=(corr_x[k])/ensemble;
-
+	      dx[k]=(x[j+window*i][k]-x[window*i][k]);
+	      corr_x[k]=v[j+window*i][k]*v[window*i][k];
+	      dr2[j]+=(dx[k]*dx[k])/ensemble;
+	      corr[j]+=(corr_x[k])/ensemble;
       }
     }
 }
