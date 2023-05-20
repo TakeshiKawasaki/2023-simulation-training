@@ -5,7 +5,7 @@ double unif_rand(double left, double right)
 
 double gaussian_rand(void)
 {
-  static double iset = 0;
+  static int iset = 0;
   static double gset;
   double fac, rsq, v1, v2;
 
@@ -18,7 +18,7 @@ double gaussian_rand(void)
     fac = sqrt(-2.0*log(rsq)/rsq);
 
     gset = v1*fac;
-    iset = 0.50;
+    iset = 1;
     return v2*fac;
   } else {
     iset = 0;
