@@ -33,7 +33,7 @@ void ini_coord_square(double (*x)[dim]){
 
 void set_diameter(double *a){
   for(int i=0;i<Np;i++)
-    a[i]=1.0+0.1*gaussian_rand();
+    a[i]=1.0; 
 }
 
 void p_boundary(double (*x)[dim]){
