@@ -23,7 +23,7 @@ patches = []
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
-x, y,r = np.loadtxt("./Lecture6/coord_square_L40.0N512.dat", comments='#', unpack=True)
+x,y,r = np.loadtxt("./Lecture6/coord_square_L40.0N512.dat", comments='#', unpack=True)
 
 for i in range(Np):
     circle = mpatches.Ellipse((x[i],y[i]), r[i], r[i])  # 楕円の中心座標，長軸　短軸　（今回は真円）
