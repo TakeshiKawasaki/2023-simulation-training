@@ -24,7 +24,7 @@ fig = plt.figure(figsize=(25,6))
 
 for j in range(1,5):
     ax = fig.add_subplot("14{}".format(j))
-    x, y,a = np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture7/coord_T{:.3f}_10.dat".format(temp[j-1]), comments='#', unpack=True)
+    x, y,a = np.loadtxt("./Lecture7/coord_T{:.3f}_10.dat".format(temp[j-1]), comments='#', unpack=True)
     for i in range(Np):
         circle = mpatches.Ellipse((x[i],y[i]), a[i], a[i])
         patches[j-1].append(circle)
@@ -48,5 +48,5 @@ for j in range(1,5):
     plt.title("$T^*={}$".format(temp[j-1]))
 
 plt.subplots_adjust(wspace=0.2, hspace=0.25)
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture7/LJ.pdf',bbox_inches="tight")
+plt.savefig('./Lecture7/LJ.pdf',bbox_inches="tight")
 plt.show()
