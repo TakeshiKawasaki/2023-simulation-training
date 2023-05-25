@@ -1,6 +1,6 @@
 ## 第７回講義動画 <br>
 will be uploeded
-## 第７回アンケート返答集
+## 第７回Q&A集
 will be uploeded
 
 ## 各種プログラムの説明　<br>
