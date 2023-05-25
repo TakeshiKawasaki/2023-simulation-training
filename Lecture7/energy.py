@@ -3,9 +3,9 @@
 import matplotlib.cm as cm  # colormap
 import matplotlib.pyplot as plt
 import numpy as np
-plt.rcParams["text.usetex"] =True
+#plt.rcParams["text.usetex"] =True
 plt.rcParams["font.size"] = 25
-x, y1, y2, y3 = np.loadtxt("./Documents/GitHub/2022-simulation-training-main/Lecture7/energy.dat", comments='#', unpack=True)
+x, y1, y2, y3 = np.loadtxt("./Lecture7/energy.dat", comments='#', unpack=True)
 
 fig = plt.figure(figsize=(10,6))
 ax = fig.add_subplot(111)
@@ -29,5 +29,5 @@ plt.legend(ncol=1, loc=4, borderaxespad=0, fontsize=20,frameon=True)
 ##
 
 
-plt.savefig('./Documents/GitHub/2022-simulation-training-main/Lecture7/energy.pdf',bbox_inches="tight")
+plt.savefig('./Lecture7/energy.pdf',bbox_inches="tight")
 plt.show()
