@@ -23,7 +23,8 @@ patches = [[] for i in range(4)]  #空の二重配列を定義
 fig = plt.figure(figsize=(25,6))
 
 for j in range(1,5):
-    ax = fig.add_subplot("14{}".format(j))
+    ax = fig.add_subplot(1,4,j)
+    #  ax = fig.add_subplot("14{}".format(j))
     x, y,a = np.loadtxt("./Lecture7/coord_T{:.3f}_10.dat".format(temp[j-1]), comments='#', unpack=True)
     for i in range(Np):
         circle = mpatches.Ellipse((x[i],y[i]), a[i], a[i])
