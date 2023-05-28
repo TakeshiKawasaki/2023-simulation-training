@@ -27,6 +27,8 @@ void ini_coord_square(double (*x)[dim]){
       if(k==Np)
         break;
     }
+　　  if(k==Np)
+        break;
 }
 
 void set_diameter(double *a){
