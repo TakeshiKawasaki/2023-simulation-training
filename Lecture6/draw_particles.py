@@ -7,7 +7,7 @@ import matplotlib.cm as cm  # colormap
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as mpatches
-
+plt.rcParams['font.family'] = 'Arial' #使用するフォント名
 #plt.rcParams["text.usetex"] =True
 plt.rcParams["font.size"] = 30
 
