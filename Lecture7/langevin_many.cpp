@@ -10,7 +10,7 @@
 #define L 40.0
 #define tmax 100
 #define dt 0.01
-#define temp 1.2
+#define temp 1.0
 #define dim 2
 #define cut 2.5
 #define polydispersity 0.0
