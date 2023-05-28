@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as mpatches
 
-plt.rcParams["text.usetex"] =True
+#plt.rcParams["text.usetex"] =True
 plt.rcParams["font.size"] = 30
 
 from matplotlib.collections import PatchCollection
