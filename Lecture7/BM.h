@@ -18,7 +18,7 @@ double gaussian_rand(void)
     fac = sqrt(-2.0*log(rsq)/rsq);
 
     gset = v1*fac;
-    iset = 1
+    iset = 1;
     return v2*fac;
   } else {
     iset = 0;
