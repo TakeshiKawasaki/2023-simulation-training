@@ -1,5 +1,5 @@
 ## 第７回講義動画 <br>
-will be uploeded
+https://nuss.nagoya-u.ac.jp/s/txF8scE74wtqwHf
 ## 第７回Q&A集
 will be uploeded
 
