@@ -10,7 +10,7 @@
 
 #define Np 1024
 #define L 40.0
-#define mcstep_max 100000
+#define mcstep_max 50000
 #define temp 0.2
 #define dim 2
 #define cut 2.5
@@ -115,7 +115,7 @@ int main(){
   set_diameter(a);
   ini_coord_square(x);
   
-  while(j<100*Np){
+  while(j<1000*Np){
     j++;
     mc(x,a,5.0,&count);
   }
