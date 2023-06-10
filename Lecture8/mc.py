@@ -9,6 +9,7 @@ import matplotlib.patches as mpatches
 
 #plt.rcParams["text.usetex"] =True
 plt.rcParams["font.size"] = 30
+plt.rcParams['font.family'] = 'Arial' #使用するフォント名
 
 from matplotlib.collections import PatchCollection
 from matplotlib.patches import Circle
@@ -23,7 +24,7 @@ patches = []
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
-x, y,a = np.loadtxt("./Lecture8/coord_mc_T{:.3f}_99.dat".format(temp), comments='#', unpack=True)
+x, y,a = np.loadtxt("./Lecture8/coord_mc_T{:.3f}_50.dat".format(temp), comments='#', unpack=True)
 
 for i in range(Np):
     circle = mpatches.Ellipse((x[i],y[i]), a[i], a[i])
