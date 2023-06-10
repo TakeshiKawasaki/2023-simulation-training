@@ -5,4 +5,4 @@ will be updated
 
 ## 今回の内容：Moarkov chain Monte-Calro simulations <br>
 mc.cpp: The main calculation code for Moarkov chain Monte-Calro simulations, which refers to "BM.h".<br>
-（補足）現状，計算スピードが遅くて使い物にならない．帳簿による高速化が必要．
+（補足）帳簿を用いることで劇的に高速化できる（補講）．
