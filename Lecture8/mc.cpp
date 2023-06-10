@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <cfloat>
+#include <iomanip>
 #include "BM.h"
 
 #define Np 1024
@@ -50,51 +51,48 @@ void ini_array(double (*x)[dim]){
       x[i][j]=0.0;
 }
 
-void calc_energy(double (*x)[dim],double *a,double *U){
+void calc_energy(double (*x)[dim],double *a,double *Ui,int i){
   double dx,dy,dr2,w2,w6,w12,aij;
-  //  double Ucut=4.*(pow(cut,-12)-pow(cut,-6));
-
-  *U=0.;
-  for(int i=0;i<Np;i++)
-    for(int j=0;j<Np;j++){
-      if(j<i){
-	dx=x[i][0]-x[j][0];
-	dy=x[i][1]-x[j][1];
-	dx-=L*floor((dx+0.5*L)/L);
-	dy-=L*floor((dy+0.5*L)/L);
-	dr2=dx*dx+dy*dy;
-	if(dr2<cut*cut){
-	  aij=0.5*(a[i]+a[j]);
-	  w2=aij*aij/dr2;
-	  w6=w2*w2*w2;
-	  w12=w6*w6;  
-	  *U+=4.*(w12-w6);
-	}
+  *Ui=0.;
+  for(int j=0;j<Np;j++){
+    if(j!=i){
+      dx=x[i][0]-x[j][0];
+      dy=x[i][1]-x[j][1];
+      dx-=L*floor((dx+0.5*L)/L);
+      dy-=L*floor((dy+0.5*L)/L);
+      dr2=dx*dx+dy*dy;
+      if(dr2<cut*cut){
+	aij=0.5*(a[i]+a[j]);
+	w2=aij*aij/dr2;
+	w6=w2*w2*w2;
+	w12=w6*w6;  
+	*Ui+=4.*(w12-w6);
       }
     }
+  }
 }
+  
 
-void ini_energy(double (*x)[dim],double *a,double *U){
-  calc_energy(x,a,&(*U));
-}
-
-void mc(double (*x)[dim],double *a,double *U,double temp0,int *count){
+void mc(double (*x)[dim],double *a,double temp0,int *count){
   double dr[2];
-  double U0;
+  double Ui,Ui0;
   double p;
+  
   int  i = (int)(Np*unif_rand(0,1.0));
-  U0=*U;
+
+  calc_energy(x,a,&Ui,i);
+  Ui0=Ui;
+  
   for(int k=0;k<dim;k++){
     dr[k]=delta*unif_rand(-1.0,1.0);
     x[i][k]+=dr[k];
   }
-  calc_energy(x,a,&(*U));
+  calc_energy(x,a,&Ui,i);
   p=unif_rand(0,1.0);
-  if(p > 1./exp((*U-U0)/temp0)){
+  if(p > 1./exp((Ui-Ui0)/temp0)){
     *count+=1;
     for(int k=0;k<dim;k++)
       x[i][k]-=dr[k];
-    *U=U0;
   }
   p_boundary(x,i);
 }
@@ -106,32 +104,31 @@ void output(double (*x)[dim],double *a){
   sprintf(filename,"coord_mc_T%.3f_%d.dat",temp,j);
   file.open(filename); 
   for(int i=0;i<Np;i++)
-    file <<x[i][0]<<"\t"<<x[i][1]<<"\t"<<a[i]<<std::endl;
+    file <<std::setprecision(8)<<x[i][0]<<"\t"<<x[i][1]<<"\t"<<a[i]<<std::endl;
   file.close();
   j++;
 }
 
 int main(){
-  double x[Np][dim],U,a[Np];
+  double x[Np][dim],a[Np];
   int j=0,out=0,count=0;
   set_diameter(a);
   ini_coord_square(x);
-  ini_energy(x,a,&U);
-   
-  while(j < 1000*Np){
+  
+  while(j<100*Np){
     j++;
-    mc(x,a,&U,5.0,&count);
+    mc(x,a,5.0,&count);
   }
   j=0;
   count=0;
   while(j < mcstep_max*Np){
     j++;
-    mc(x,a,&U,temp,&count);
+    mc(x,a,temp,&count);
     if(j>out){
       output(x,a);
       out+=1000*Np;   
     }
   }
-  std::cout<<"rejection rate = "<<(double)count/mcstep_max/Np<<std::endl;
+  std::cout<<std::setprecision(8)<<"rejection rate = "<<(double)count/mcstep_max/Np<<std::endl;
   return 0;
 }
