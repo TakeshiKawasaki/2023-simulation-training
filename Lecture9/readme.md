@@ -1,5 +1,5 @@
 ## 第９回講義動画<br>
-https://nuss.nagoya-u.ac.jp/s/AZyQ7eYByEmEywp
+will be uploaded
 
 ## 第９回（補講）　高速化<br>
 Verlet帳簿法<br>
