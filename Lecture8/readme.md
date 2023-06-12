@@ -1,5 +1,5 @@
 ## 第８回講義動画 <bf>
-will be upleaded
+https://nuss.nagoya-u.ac.jp/s/9ZqcJHoFpfCJ7aN
 ## 第８回アンケート返答集<bf>
 will be updated
 
