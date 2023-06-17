@@ -8,9 +8,9 @@
 #include "BM.h"
 
 #define Np 1024
-#define Nn 100
+#define Nn 300
 #define L 40.0
-#define mcstep_max 100000
+#define mcstep_max 50000
 #define temp 0.2
 #define dim 2
 #define cut 2.5
@@ -60,9 +60,9 @@ void list_verlet(int (*list)[Nn],double (*x)[dim]){
     for(int j=0;j<Nn;j++)
       list[i][j]=0;
   
-  for(int i=0;i<Np;i++)
-    for(int j=0;j<Np;j++){
-      if(j>i){
+  for(int i=0;i<Np;i++){
+     for(int j=0;j<Np;j++){
+      if(j!=i){
 	dx=x[i][0]-x[j][0];
 	dy=x[i][1]-x[j][1];
 	dx-=L*floor((dx+0.5*L)/L);
@@ -74,28 +74,29 @@ void list_verlet(int (*list)[Nn],double (*x)[dim]){
 	}
       }
     }
+     // printf("%d\n",list[i][0]);
+  }
 }
 
 
-void calc_energy(double (*x)[dim],double *a,double *U,int (*list)[Nn]){
+void calc_energy(double (*x)[dim],double *a,double *Ui,int (*list)[Nn],int i){
   double dx,dy,dr2,w2,w6,w12,aij;
-  //  double Ucut=4.*(pow(cut,-12)-pow(cut,-6));
-  *U=0.;
-  for(int i=0;i<Np;i++)
-    for(int j=1;j<=list[i][0];j++){
-      dx=x[i][0]-x[list[i][j]][0];
-      dy=x[i][1]-x[list[i][j]][1];
-      dx-=L*floor((dx+0.5*L)/L);
-      dy-=L*floor((dy+0.5*L)/L);
-      dr2=dx*dx+dy*dy;
-      if(dr2<cut*cut){
-	aij=0.5*(a[i]+a[list[i][j]]);
-	w2=aij*aij/dr2;
-	w6=w2*w2*w2;
-	w12=w6*w6;  
-	*U+=4.*(w12-w6);
-      }
+  *Ui=0.;
+  
+  for(int j=1;j<=list[i][0];j++){
+    dx=x[i][0]-x[list[i][j]][0];
+    dy=x[i][1]-x[list[i][j]][1];
+    dx-=L*floor((dx+0.5*L)/L);
+    dy-=L*floor((dy+0.5*L)/L);
+    dr2=dx*dx+dy*dy;
+    if(dr2<cut*cut){
+      aij=0.5*(a[i]+a[list[i][j]]);
+      w2=aij*aij/dr2;
+      w6=w2*w2*w2;
+      w12=w6*w6;  
+      *Ui+=4.*(w12-w6);
     }
+  }
 }
 
 
@@ -129,32 +130,34 @@ void auto_list_update(double *disp_max,double (*x)[dim],double (*x_update)[dim],
     list_verlet(list,x);
     update(x_update,x);
     *disp_max=0.0;
-    //    std::cout<<"update"<<count<<std::endl;
+    //   std::cout<<"update"<<count<<std::endl;
     count=0;
   }
 }
 
 
-void mc(double (*x)[dim],double (*x_update)[dim],double *a,double *U,double temp0,int *count,int (*list)[Nn],double *disp_max){
+int mc(double (*x)[dim],double (*x_update)[dim],double *a,double temp0,int *count,int (*list)[Nn],double *disp_max){
   double dr[2];
-  double U0;
+  double U0,Ui;
   double p;
   int  i = (int)(Np*unif_rand(0,1.0));
-  U0=*U;
+  calc_energy(x,a,&Ui,list,i);
+  U0=Ui;
   for(int k=0;k<dim;k++){
     dr[k]=delta*unif_rand(-1.0,1.0);
     x[i][k]+=dr[k];
   }
-  calc_energy(x,a,&(*U),list);
+  calc_energy(x,a,&Ui,list,i);
   p=unif_rand(0,1.0);
-  if(p > 1./exp((*U-U0)/temp0)){
+  if(p > 1./exp((Ui-U0)/temp0)){
     *count+=1;
     for(int k=0;k<dim;k++)
       x[i][k]-=dr[k];
-    *U=U0;
+    return 0;
   }
   p_boundary(x,i);
   auto_list_update(disp_max,x,x_update,list,i);
+  return 0;
 }
 
 void output(double (*x)[dim],double *a){
@@ -166,28 +169,28 @@ void output(double (*x)[dim],double *a){
   for(int i=0;i<Np;i++)
     file <<x[i][0]<<"\t"<<x[i][1]<<"\t"<<a[i]<<std::endl;
   file.close();
+  std::cout<<"out ="<< j <<std::endl;
   j++;
 }
 
 
 int main(){
-  double x[Np][dim],x_update[Np][dim],U,a[Np],disp=0.0,disp_max=0.0;
+  double x[Np][dim],x_update[Np][dim],a[Np],disp=0.0,disp_max=0.0;
   int list[Np][Nn];
   int j=0,out=0,count=0;
   set_diameter(a);
   ini_coord_square(x);
   list_verlet(list,x);
-  calc_energy(x,a,&U,list);
-  
+   
   while(j < 1000*Np){
     j++;
-    mc(x,x_update,a,&U,5.0,&count,list,&disp_max);
+    mc(x,x_update,a,5.0,&count,list,&disp_max);
   }
   j=0;
   count=0;
   while(j < mcstep_max*Np){
     j++;
-    mc(x,x_update,a,&U,temp,&count,list,&disp_max);
+    mc(x,x_update,a,temp,&count,list,&disp_max);
     if(j>out){
       output(x,a);
       out+=1000*Np;   
