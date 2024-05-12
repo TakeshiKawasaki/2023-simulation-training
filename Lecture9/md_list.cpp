@@ -192,7 +192,7 @@ int main(){
   set_diameter(a);
   ini_coord_square(x);
   ini_array(v);
-  
+  update(x_update,x); //added
   while(j*dtbd < 10.){
     j++;
     auto_list_update(&disp_max,x,x_update,list);
