@@ -42,6 +42,7 @@ for j in range(1,5):
     ax.spines['right'].set_linewidth(3)
     plt.tick_params(which='major',width = 1, length = 10)
     plt.tick_params(which='minor',width = 1, length = 5)
+    ax.set_aspect('equal')
  
     plt.xlabel(r"$x/a$",color='k', size=35)
     if(j==1):
